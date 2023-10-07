@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="block-front-cover align_full">
+  <div class="cover-content">
+    <h2>Are you too busy to take your car to automobile service provider?</h2>
+    <p>No worries! Find service provider who can come to your place and take car of your car.</p>
+    <div class="search-area-in-front-cover">
+      <div class="state-select">
+        <select>
+          <option value="IA">Iowa</option>
+          <option value="NY">New York</option>
+          <option value="CA">California</option>
+        </select>
+      </div>
+      <div class="city-select">
+        <select>
+          <option value="IA">Iowa</option>
+          <option value="NY">New York</option>
+          <option value="CA">California</option>
+        </select>
+      </div>
+      <div class="search-button">
+        <button class="raf-button raf-button-secondary-solid">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block-category-display">
+  <h2 class="block-title">Find service by category</h2>
+  <p class="block-description">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+  <div class="card-container">
+    <div *ngFor="let category of categoryList" class="card">
+      <div class="card-head">
+        <img src="">
+      </div>
+      <div class="card-body">
+        <h3>{{category.name}}</h3>
+        <p class="category-excerpt">{{category.detail}}</p>
+        <button class="category-search-button raf-button raf-button-primary-text">Search by</button>
+      </div>
+    </div>
+  </div>
+</div>

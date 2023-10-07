@@ -1,1 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto:wght@100;300;400&display=swap');
+
+body {
+  // font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  word-spacing: 3px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+a {
+  color: $secondary_4;
+  text-underline-offset: 6px;
+  font-weight: bold;
+
+  &:hover {
+    color: $tertiary_2;
+  }
+}
+
+.align_full {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+.raf-button {
+  border: 0;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  min-width: 128px;
+  letter-spacing: 2px;
+
+  &:hover, &:active {
+    cursor: pointer;
+  }
+
+  &-rounded {
+    border-radius: 5px;
+  }
+
+  &.raf-button {
+    &-primary {
+      &-solid {
+        background-color: $primary_3;
+        color: #FFFFFF;
+        border-bottom: 4px solid $primary_4;
+
+        &:hover, &:active {
+          background-color: $primary_4;
+        }
+      }
+
+      &-border {
+        background-color: transparent;
+        border: 3px solid $primary_4;
+        color: $primary-4;
+
+        &:hover, &:active {
+          background-color: $primary_4;
+          color: #FFFFFF;
+        }
+      }
+
+      &-text {
+        background-color: transparent;
+        border-bottom: 3px solid $secondary_4;
+        color: $primary-4;
+        padding: 8px 0;
+
+        &:hover, &:active {
+          border-bottom: 3px solid $tertiary_4;
+        }
+      }
+    }
+
+    &-secondary {
+      &-solid {
+        background-color: $secondary_3;
+        color: $tertiary_4;
+        border-bottom: 4px solid $secondary_4;
+
+        &:hover, &:active {
+          background-color: $secondary_4;
+        }
+      }
+
+      &-border {
+        background-color: transparent;
+        border: 3px solid $secondary_4;
+        color: $secondary-4;
+
+        &:hover, &:active {
+          background-color: $secondary_4;
+          color: #FFFFFF;
+        }
+      }
+
+      &-text {
+        background-color: transparent;
+        border-bottom: 3px solid $tertiary_4;
+        color: $secondary-4;
+        padding: 8px 0;
+
+        &:hover, &:active {
+          border-bottom: 3px solid $primary_4;
+        }
+      }
+    }
+
+    &-tertiary {
+      &-solid {
+        background-color: $tertiary_3;
+        color: #FFFFFF;
+        border-bottom: 4px solid $tertiary_4;
+
+        &:hover, &:active {
+          background-color: $tertiary_4;
+        }
+      }
+
+      &-border {
+        background-color: transparent;
+        border: 3px solid $tertiary_4;
+        color: $tertiary-4;
+
+        &:hover, &:active {
+          background-color: $tertiary_4;
+          color: #FFFFFF;
+        }
+      }
+
+      &-text {
+        background-color: transparent;
+        border-bottom: 3px solid $primary_4;
+        color: $tertiary-4;
+        padding: 8px 0;
+
+        &:hover, &:active {
+          border-bottom: 3px solid $secondary_4;
+        }
+      }
+    }
+  }
+}
