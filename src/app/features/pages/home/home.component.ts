@@ -14,9 +14,14 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    this.categoryDataService.getData().subscribe(data => {
-      this.categoryList = data._embedded.categories;
-      console.log(this.categoryList);
+    this.categoryDataService.getData().subscribe({
+      next: value => {
+        this.categoryList = value._embedded.categories;
+        console.log(this.categoryList);
+      },
+      error: err => {
+        console.log(err);
+      }
     });
   }
 }
