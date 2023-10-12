@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="page-body align_full">
+  <div class="form-container">
+    <h3 class="form-header">Create Product</h3>
+    <form class="product-form" [formGroup]="formGroup" (ngSubmit)="createProductHandler()">
+      <div class="field-container">
+        <label for="name">Product name</label>
+        <input class="product-form-field" formControlName="name" type="text">
+      </div>
+      <div class="field-container">
+        <label for="detail">Detail</label>
+        <textarea class="product-form-field" formControlName="detail"></textarea>
+      </div>
+      <div class="field-container">
+        <label for="price">Price</label>
+        <input class="product-form-field" formControlName="price" type="number"> 
+      </div>
+      <div class="field-container">
+        <label for="premiumService">Is it premium service?</label>
+        <div class="radio-container">
+          <input type="radio" formControlName="isPremium" value="YES"  id="is_premium_yes"/>
+          <label class="radio-label" for="is_premium_yes">Yes</label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" formControlName="isPremium" value="NO" id="is_premium_no"/>
+          <label class="radio-label" for="is_premium_no">No</label>
+        </div>
+      </div>
+      <div class="field-container" *ngIf="showAdditionalPriceField">
+        <label for="additionalCharge">Additional charge</label>
+        <input class="product-form-field" type="number" formControlName="additionalCharge">
+      </div>
+      <div class="field-container">
+        <button class="raf-button raf-button-secondary-solid" type="submit">Create Product</button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <p>{{formGroup.controls['name'].value}}</p>
+    <p>{{formGroup.controls['detail'].value}}</p>
+    <p>{{formGroup.controls['isPremium'].value}}</p>
+  </div>
+</div>

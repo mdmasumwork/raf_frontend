@@ -1,12 +1,14 @@
 @import "/src/variables";
 
 header {
-    max-width: 1200px;
-    margin: auto;
+  border-bottom: 0px solid $primary_1;
+  padding: 10px 16px 8px;
+  background-color: #efefef;
 
     .site-header-absolute {
-      display: flex;
-      margin-bottom: 8px;
+      display: flex;      
+      max-width: 1200px;
+      margin: 0 auto;
 
       .site-branding {
         flex-grow: 8;
@@ -37,6 +39,12 @@ header {
             &:before {
               font-size: 28px;
             }
+          }
+        }
+
+        .mobile-menu {
+          img.burger-menu-icon {
+            width: 24px;
           }
         }
       }
@@ -117,8 +125,11 @@ header {
             }
           }
 
-          button.burger-menu {
+          .mobile-menu {
             display: none;
+            img.burger-menu-icon {
+              width: 24px;
+            }
           }
         }
       }
