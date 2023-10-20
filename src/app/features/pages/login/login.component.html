@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="page-body">
+    <div class="form-container">
+      <h3 class="form-header">Login</h3>
+      <form class="raf-form" [formGroup]="loginForm" (ngSubmit)="logInFormHandler()">
+        <div class="field-container">
+          <label for="username">Username</label>
+          <input type="text" formControlName="username" class="form-field">
+          <p class="error-message" *ngIf="loginForm.get('username')?.hasError('required') && (loginForm.get('username')?.touched || formSubmitted)">Username required!</p>
+        </div>
+        <div class="field-container">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-field">
+          <p class="error-message" *ngIf="loginForm.get('password')?.hasError('required') && (loginForm.get('password')?.touched || formSubmitted)">Password required!</p>
+        </div>
+        <div class="field-container">
+          <button class="raf-button raf-button-secondary-solid" type="submit">Sign in</button>
+        </div>
+      </form>
+    </div>
+</div>

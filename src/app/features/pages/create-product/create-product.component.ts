@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ControlContainer, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { ProductDataService } from 'src/app/core/services/data/product/product-data.service';
 
 @Component({
   selector: 'app-create-product',
@@ -15,10 +16,10 @@ export class CreateProductComponent {
   showAdditionalPriceField: boolean = false;
   formSubmitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private productDataService: ProductDataService) {
     this.formGroup = formBuilder.group({
-      name: ['', [this.emptyValidator]],
-      detail: ['', [this.emptyValidator]],
+      title: ['', [this.emptyValidator]],
+      description: ['', [this.emptyValidator]],
       price: [0, [this.priceValidator]],
       isPremium: ["NO"],
       additionalCharge: [0, [this.additionalChargeValidator]]
@@ -40,7 +41,12 @@ export class CreateProductComponent {
   createProductHandler(): void {
     this.formSubmitted = true;
     if(this.formGroup.valid) {
-      console.log("Form is valid");
+      this.productDataService.postData(this.formGroup.value).subscribe(data => {
+        console.log("Product created");
+      },
+      error => {
+        console.log(error);
+      });
     } else {
       console.log("Form is not valid")
     }

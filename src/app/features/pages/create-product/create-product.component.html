@@ -1,22 +1,22 @@
 <app-header></app-header>
 
-<div class="page-body align_full">
+<div class="page-body">
   <div class="form-container">
     <h3 class="form-header">Create Product</h3>
-    <form class="product-form" [formGroup]="formGroup" (ngSubmit)="createProductHandler()">
+    <form class="raf-form" [formGroup]="formGroup" (ngSubmit)="createProductHandler()">
       <div class="field-container">
-        <label for="name">Product name</label>
-        <input class="product-form-field" formControlName="name" type="text">
-        <p class="error-message" *ngIf="formGroup.get('name')?.hasError('emptyValidator') && (formGroup.get('name')?.touched || formSubmitted)">Name is required!</p>
+        <label for="title">Product name</label>
+        <input class="form-field" formControlName="title" type="text">
+        <p class="error-message" *ngIf="formGroup.get('title')?.hasError('emptyValidator') && (formGroup.get('title')?.touched || formSubmitted)">Name is required!</p>
       </div>
       <div class="field-container">
-        <label for="detail">Detail</label>
-        <textarea class="product-form-field" formControlName="detail"></textarea>
-        <p class="error-message" *ngIf="formGroup.get('detail')?.hasError('emptyValidator') && (formGroup.get('detail')?.touched || formSubmitted)">Detial is required!</p>
+        <label for="description">Detail</label>
+        <textarea class="form-field" formControlName="description"></textarea>
+        <p class="error-message" *ngIf="formGroup.get('description')?.hasError('emptyValidator') && (formGroup.get('description')?.touched || formSubmitted)">Detial is required!</p>
       </div>
       <div class="field-container">
         <label for="price">Price</label>
-        <input class="product-form-field" formControlName="price" type="number">
+        <input class="form-field" formControlName="price" type="number">
         <p class="error-message" *ngIf="formGroup.get('price')?.hasError('priceValidator') && (formGroup.get('price')?.touched || formSubmitted)">Price cannot be less than 0.00!</p> 
       </div>
       <div class="field-container">
@@ -32,17 +32,12 @@
       </div>
       <div class="field-container" *ngIf="showAdditionalPriceField">
         <label for="additionalCharge">Additional charge for premium service</label>
-        <input class="product-form-field" type="number" formControlName="additionalCharge">
+        <input class="form-field" type="number" formControlName="additionalCharge">
         <p class="error-message" *ngIf="formGroup.get('additionalCharge')?.hasError('additionalChargeValidator') && (formGroup.get('additionalCharge')?.touched || formSubmitted)">Additional charge cannot me less than 0!</p>
       </div>
       <div class="field-container">
         <button class="raf-button raf-button-secondary-solid" type="submit">Create Product</button>
       </div>
     </form>
-  </div>
-  <div>
-    <p>{{formGroup.controls['name'].value}}</p>
-    <p>{{formGroup.controls['detail'].value}}</p>
-    <p>{{formGroup.controls['isPremium'].value}}</p>
   </div>
 </div>

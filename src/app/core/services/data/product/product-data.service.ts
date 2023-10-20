@@ -13,10 +13,22 @@ interface Product {
 })
 export class ProductDataService {
 
-  constructor(private http: HttpClient) { }
+  private option;
 
-  getData(): Observable<Product> {
-    return this.http.get<Product>("http://localhost:8085/products").pipe(
+  constructor(private http: HttpClient) {
+    this.option = {
+      withCredentials: true
+    }
+  }
+
+  getData(): Observable<any> {
+    return this.http.get<any>("http://localhost:8085/products", this.option).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  postData(product: Product): Observable<any> {
+    return this.http.post("http://localhost:8085/products", product).pipe(
       catchError(this.handleError)
     );
   }
@@ -28,7 +40,6 @@ export class ProductDataService {
     } else {
       errorMessage = "Backend error - " + error.error;
     }
-    console.log(errorMessage);
     return throwError(() => new Error(errorMessage));
   }
 }

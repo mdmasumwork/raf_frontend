@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, ObservableInput, throwError} from "rxjs";
 
 interface Category {
@@ -9,15 +9,21 @@ interface Category {
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryDataService {
+export class CategoryDataService {  
 
-  constructor(private http: HttpClient) { }
+  private option;
+
+  constructor(private http: HttpClient) {
+    this.option = {
+      withCredentials: true
+    }
+  }
 
   getData(): Observable<any> {
-    return this.http.get<any>("http://localhost:8085/categories").pipe(
+    return this.http.get<any>("http://localhost:8085/categories", this.option).pipe(
       catchError(this.handleError)
     );
-  }
+  } 
 
   private handleError(error: any, caught: Observable<any>): ObservableInput<any> {
     let errorMessage = "An error occurred!"
